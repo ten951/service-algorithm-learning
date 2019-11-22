@@ -46,6 +46,13 @@ package com.ten951.algorithm.arraylinked.removeduplicates;
  * @date 2019-11-22 13:55
  */
 public class Solution {
+    /**
+     * 一次循环1到数组长度n 时间复杂度为O(N)
+     * 空间复杂度 O(1) 恒定不变.
+     *
+     * @param nums 排序的数组
+     * @return 不重复的数组个数
+     */
     public int removeDuplicates(int[] nums) {
         if (nums == null || nums.length == 0) {
             return 0;

@@ -19,6 +19,13 @@ package com.ten951.algorithm.arraylinked.containermost;
 
 
 class Solution {
+    /**
+     * 一次循环, 从0到数组长度n. 时间负责度O(n)
+     * 空间负责度 恒定不变O(1)
+     *
+     * @param height 数组
+     * @return 最大容量
+     */
     public int maxArea(int[] height) {
         int lo = 0, hi = height.length - 1, max = 0;
         while (lo < hi) {
