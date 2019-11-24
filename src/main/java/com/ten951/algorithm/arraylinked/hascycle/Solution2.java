@@ -74,7 +74,8 @@ public class Solution2 {
     }
 
     /**
-     *
+     * 时间复杂度 O(N)
+     * 空间复杂度 O(1)
      * @param head 链表
      * @return 环的入口
      */
