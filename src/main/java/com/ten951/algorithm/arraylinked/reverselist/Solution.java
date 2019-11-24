@@ -52,6 +52,8 @@ public class Solution {
 
     /**
      * 递归解法
+     * 时间负责度 转换成递归树发现没有分叉 是O(N)
+     * 空间负责度 因为递归需要额外的栈空间. 所以也是O(N)
      * 1->2->3->4->null
      * @param head 链表
      * @return 链表
