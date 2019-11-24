@@ -51,6 +51,13 @@ public class Solution {
         }
     }
 
+    /**
+     * 时间复杂度 O(N)
+     * 空间复杂度 O(1)
+     * 判定链表是否存在环
+     * @param head 链表
+     * @return true 存在环 false 无环
+     */
     public boolean hasCycle(ListNode head) {
         if (head == null || head.next == null) {
             return false;

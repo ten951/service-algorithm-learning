@@ -57,25 +57,56 @@ public class Solution2 {
         }
     }
 
-    public ListNode detectCycle(ListNode head) {
+    public ListNode findMeet(ListNode head) {
         if (head == null || head.next == null) {
             return null;
         }
         ListNode slow = head;
         ListNode fast = head;
-        ListNode meet = null;
         while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
             if (slow == fast) {
-                meet = fast;
-                while (head != meet) {
-                    head = head.next;
-                    meet = meet.next;
-                }
-                return head;
+                return slow;
             }
         }
         return null;
+    }
+
+    /**
+     *
+     * @param head 链表
+     * @return 环的入口
+     */
+    public ListNode detectCycle(ListNode head) {
+        /*找到相遇点*/
+        ListNode meet = this.findMeet(head);
+        if (meet == null) {
+            return null;
+        }
+        while (head != meet) {
+            head = head.next;
+            meet = meet.next;
+        }
+        return head;
+    }
+
+    public static void main(String[] args) {
+        ListNode node1 = new ListNode(1);
+        ListNode node2 = new ListNode(2);
+        ListNode node3 = new ListNode(3);
+        ListNode node4 = new ListNode(4);
+        ListNode node5 = new ListNode(5);
+        ListNode node6 = new ListNode(6);
+        ListNode node7 = new ListNode(7);
+        node1.next = node2;
+        node2.next = node3;
+        node3.next = node4;
+        node4.next = node5;
+        node5.next = node6;
+        node6.next = node7;
+        node7.next = node3;
+        ListNode node = new Solution2().detectCycle(node1);
+        System.out.println("node = " + node.val);
     }
 }
