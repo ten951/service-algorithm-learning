@@ -126,6 +126,14 @@ fast 一次两个节点走,
    
 思路: 双指针
 
+求雨水量公式``max = Math.max(max, Math.min(height[lo], height[hi])*(hi-lo))``
+
+剩下的事情就是 当height[lo] < height[hi] lo++ 反之 hi--;
+
+当lo和hi相遇时, max 就是雨水的容量
+
+## 20 有效的括号
+
 
 
 
