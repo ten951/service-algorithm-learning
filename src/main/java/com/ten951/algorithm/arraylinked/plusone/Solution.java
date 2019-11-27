@@ -1,4 +1,4 @@
-package com.ten951.algorithm.plusone;
+package com.ten951.algorithm.arraylinked.plusone;
 
 /**
  * @author Darcy
