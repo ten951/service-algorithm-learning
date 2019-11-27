@@ -13,7 +13,6 @@ package com.ten951.algorithm.arraylinked.mergesortlist;
 
 //leetcode submit region begin(Prohibit modification and deletion)
 
-import com.ten951.algorithm.arraylinked.hascycle.Solution2;
 
 /**
  * @author Darcy
