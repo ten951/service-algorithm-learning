@@ -33,37 +33,29 @@ public class Solution {
      */
     public List<List<Integer>> threeSum(int[] num) {
         Arrays.sort(num);
-        List<List<Integer>> res = new LinkedList<List<Integer>>();
+        List<List<Integer>> res = new LinkedList<>();
         for (int i = 0; i < num.length - 2; i++) {
-            /*在有序数组中. i的位置的元素就>0, 三数相加不仅可能等于0*/
             if (num[i] > 0) {
                 break;
             }
-            /*去除重复(i指针的)*/
             if (i == 0 || num[i] != num[i - 1]) {
-                /*双指针*/
-                int lo = i + 1, hi = num.length - 1, sum = -num[i];
-                while (lo < hi) {
-                    int n = num[lo] + num[hi];
-                    if (n == sum) {
-                        List<Integer> tmp = new ArrayList<Integer>();
-                        tmp.add(num[i]);
-                        tmp.add(num[lo]);
-                        tmp.add(num[hi]);
-                        res.add(tmp);
-                        //res.add(Arrays.asList(num[i], num[lo], num[hi]));
-                        while (lo < hi && num[lo] == num[lo + 1]) {
-                            lo++;
+                int left = i + 1, right = num.length - 1, sum = -num[i];
+                while (left < right) {
+                    int n = num[left] + num[right];
+                    if (sum == n) {
+                        res.add(Arrays.asList(num[i], num[left], num[right]));
+                        while (left < right && num[left] == num[left + 1]) {
+                            left++;
                         }
-                        while (lo < hi && num[hi] == num[hi - 1]) {
-                            hi--;
+                        while (left < right && num[right] == num[right - 1]) {
+                            right--;
                         }
-                        lo++;
-                        hi--;
+                        left++;
+                        right--;
                     } else if (n < sum) {
-                        lo++;
+                        left++;
                     } else {
-                        hi--;
+                        right--;
                     }
                 }
             }
