@@ -10,6 +10,14 @@ import java.util.Map;
  * @date 2020-01-26 15:10
  */
 public class Solution {
+    /**
+     * 构建数字和字母键值对.
+     * 从0->digits.length() 遍历
+     * 依次枚举
+     *
+     * @param digits 数字字符串
+     * @return 可能的组合
+     */
     public List<String> letterCombinations(String digits) {
         Map<Character, String> map = new HashMap<>(8);
         map.put('2', "abc");
