@@ -6,6 +6,6 @@ package com.ten951.algorithm.search.buysell3;
  */
 public class Solution {
     public int maxProfit(int[] prices) {
-
+        return 0;
     }
 }
