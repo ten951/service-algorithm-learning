@@ -42,6 +42,8 @@ package com.ten951.algorithm.arraylinked.hascycle;
 // Related Topics 链表 双指针
 
 
+import java.sql.ClientInfoStatus;
+
 /**
  * @author Darcy
  * @date 2019-11-24 14:30
@@ -76,6 +78,7 @@ public class Solution2 {
     /**
      * 时间复杂度 O(N)
      * 空间复杂度 O(1)
+     *
      * @param head 链表
      * @return 环的入口
      */
@@ -90,6 +93,42 @@ public class Solution2 {
             meet = meet.next;
         }
         return head;
+    }
+
+    public int cycleLength1(ListNode head) {
+        if (head == null || head.next == null) {
+            return 0;
+        }
+        ListNode slow = head;
+        ListNode fast = head;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            while (slow == fast) {
+                int len = 1;
+                slow = slow.next;
+                fast = fast.next.next;
+                while (slow != fast) {
+                    len++;
+                    slow = slow.next;
+                    fast = fast.next.next;
+                }
+                return len;
+            }
+        }
+        return 0;
+    }
+
+
+    public int cycleLength(ListNode head) {
+        ListNode start = this.detectCycle(head);
+        ListNode slow = start.next;
+        int i = 1;
+        while (start != slow) {
+            slow = slow.next;
+            i++;
+        }
+        return i;
     }
 
     public static void main(String[] args) {
@@ -108,6 +147,9 @@ public class Solution2 {
         node6.next = node7;
         node7.next = node3;
         ListNode node = new Solution2().detectCycle(node1);
+        int i = new Solution2().cycleLength1(node1);
+        System.out.println("i = " + i);
+
         System.out.println("node = " + node.val);
     }
 }
